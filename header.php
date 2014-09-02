@@ -34,9 +34,14 @@
                         <?php bloginfo('name'); ?>:<?php bloginfo('description'); ?>
                     </a>
                 </h1>
-                <ul class="list-inline">
-                    <?php wp_nav_menu(); ?>
-                </ul>
+                <?php
+                        $args = array( 'menu'               => 'main', 
+                                       'container_class'    => 'navbar navbar-default', 
+                                       'container'          => 'nav', 
+                                       'theme_location'     => 'primary-menu',
+                                       'items_wrap'         => '<ul class="nav nav-pill">%3$s</ul>');
+                        wp_nav_menu($args);
+                ?>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12">
     	<?php if (!is_single() && !is_page() && !is_front_page()) : ?><h1><?php wp_title(' ', true, 'right'); ?></h1><?php endif; ?>
         
         <?php /* begin the loop */ if (have_posts()) : ?>
@@ -70,27 +70,18 @@
         <?php endif; ?>
         
         <?php else : /* show page not found message */ ?>
-        
+        <!-- @todo add a 404 page -->
         <div>
-        
             <h1>Page not found</h1>
-            
             <p>Sorry, the page you are looking for is not available. It may have moved, or you may have followed a bad link. Please 
             <a href="<?php bloginfo('url') ?>">visit our homepage</a> to find what you're looking for.</p>
-        
         </div>
         
         <?php endif; /* end if have_posts */ ?>      
     
     
-      </div><!-- / end content -->
-    
-    <div class="col-sm-4">
-    
-        <?php /* sidebar */ get_sidebar(); ?>
+        </div><!-- / end content -->
     </div>
-    </div>
-    
-  </div><!-- / end main -->
+</div><!-- / end main -->
 
 <?php /* footer */ get_footer(); ?>
