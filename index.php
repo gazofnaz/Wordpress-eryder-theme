@@ -47,20 +47,7 @@
         
         <?php endwhile;/* end the main loop */ ?>
         
-        
-        <?php /* post navigation */ ?>
-        <?php if (is_single()) : ?>
-            <div>
-                <?php previous_post_link('%link | ', '<span>&lt;</span> Previous post') ?>
-                <?php next_post_link('%link', 'Next post <span>&gt;</span>') ?>
-            </div>
-        <?php endif; ?>
-        <?php if (  $wp_query->max_num_pages > 1 ) : ?>
-            <div>
-                <?php next_posts_link('Older posts <span>&gt;</span>') ?>  
-                <?php previous_posts_link('<span>&lt;</span> Newer posts') ?>
-            </div>
-        <?php endif; ?>
+        <!-- @todo previous / next post buttons are nice if they have the actual post name in the link -->
         
         <?php else : /* show page not found message */ ?>
         <!-- @todo add a 404 page -->
