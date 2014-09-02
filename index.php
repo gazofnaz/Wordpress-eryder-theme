@@ -30,18 +30,23 @@
                 </div>
             
             <?php else : /* show post contents */ ?>
-
-                <div id="post-<?php the_ID(); ?>">
-                    <div>
-                        <?php if (!is_single()) : ?>
-                            <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-                        <?php else : ?>
-                            <h1><?php the_title(); ?></h1>
-                        <?php endif; ?>
-                        
-                        <?php the_content('Read more &gt;'); ?> 
-                        <p><?php wp_link_pages('next_or_number=number&pagelink=page %'); ?></p>    
+                <div class="ga-box-list">
+                    <div class="col-md-4 col-sm-11 no-left-gutter">
+                        <!-- first item always has "no-left-gutter"-->
+                        <div class="box-item pull-left col-sm-11 col-xs-11">
+                            <p class="ga-box-description"><h4><?php the_title(); ?></45></p>
+                            <a href="<?php the_permalink() ?>">
+                                <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" />
+                            </a>
+                            <div class="clearfix"></div>
+                            <p class="ga-box-description"><?php the_content('Read more &gt;'); ?> </p>
+                            <div class="ga-box-links" >
+                                <p class="text-center"><a href="#">Find out more...</a></p>
+                            </div>
+                        </div>
                     </div>
+                    <!-- @todo divisible by 3 -->
+                    <!-- <div class="clearfix"></div> -->
                 </div>
             <?php endif; /* end if page or post */ ?>
         

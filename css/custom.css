@@ -1,22 +1,96 @@
-#outer{
-   position: absolute;
-   top: 10%;
-   left: 0;
-   width: 100%;
-   /*margin-top: -220px;*/
+/*--------------*/
+/*ga BOX LIST START*/
+/*--------------*/
+
+/*
+ga box list used in newsletter library
+and data tools pages
+*/
+
+.ga-box-list .box-item{
+    border: 1px solid #D1D1D1;
+    padding: 15px;
+    margin-bottom: 25px;
+    background: #FFF;
 }
 
-#inner {
-   margin-left: auto;
-   margin-right: auto;
+.ga-box-list .box-item.disabled{
+    border: 1px dashed #EEE;
+    background: none;
 }
 
-h1{
-    font-size: 48px;
-    margin-bottom: 0;
+.ga-box-list{
+    margin-bottom: 20px;
 }
 
-p{
-    margin-bottom: 2.5%;
-    margin-top: 2.5%;
+.ga-box-list .box-item p{
+    margin-bottom: 0px;
+    font-size: 12px;
 }
+
+.ga-box-list .box-item p.frequency{
+    color: #485D7C;
+}
+
+.ga-box-list .box-item.disabled img{
+    /* Chrome/Webkit Only for now */
+    filter: grayscale(1) blur(1px) opacity(0.8);
+}
+
+.ga-box-list h2 small{
+    display: block;
+    background: #61799b; /*Default Colour*/
+    height: 20px;
+    width: 320px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.ga-box-list h2 small.colour-1{
+    background: #61799b;
+}
+
+.ga-box-list h2 small.colour-2{
+    background: #A4B5CF;
+}
+
+.ga-box-list h2 small.colour-3{
+    background: #949BA5;
+}
+
+.ga-box-list h3{
+    margin-top: 0;
+}
+
+.ga-box-list h3 a{
+    color: #676767;
+}
+
+.ga-box-list img{
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.ga-box-list .ga-box-description{
+    margin-top: 10px;
+}
+
+.ga-box-links {
+    margin-top: 20px;
+}
+
+.ga-box-links a{
+    border: 1px solid #8897AE;
+    display: block;
+    padding: 10px 0;
+}
+
+.ga-box-links a:hover {
+    background-color: #8897AE;
+    color: #FFF;
+    text-decoration: none;
+}
+
+/*--------------*/
+/*ga BOX LIST END*/
+/*--------------*/
