@@ -34,14 +34,16 @@
                         <?php bloginfo('name'); ?>:<?php bloginfo('description'); ?>
                     </a>
                 </h1>
+                <nav>
                 <?php
                         $args = array( 'menu'               => 'main', 
                                        'container_class'    => 'navbar navbar-default', 
-                                       'container'          => 'nav', 
+                                       'container'          => 'div', 
                                        'theme_location'     => 'primary-menu',
-                                       'items_wrap'         => '<ul class="nav nav-pill">%3$s</ul>');
+                                       'items_wrap'         => '<ul class="nav navbar-nav">%3$s</ul>');
                         wp_nav_menu($args);
                 ?>
+                </nav>
             </div>
         </div>
     </div>

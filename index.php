@@ -17,7 +17,6 @@
                     <p><?php wp_link_pages('next_or_number=number&pagelink=page %'); ?></p>
                     <p><?php edit_post_link('Edit', '[ ', ' ]'); ?></p>  
                 </div>
-                <?php comments_template(); ?>
             
             <?php elseif (is_search()) : /* show search results */ ?>
             
@@ -34,7 +33,6 @@
 
                 <div id="post-<?php the_ID(); ?>">
                     <div>
-                        
                         <?php if (!is_single()) : ?>
                             <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
                         <?php else : ?>
@@ -44,11 +42,6 @@
                         <?php the_content('Read more &gt;'); ?> 
                         <p><?php wp_link_pages('next_or_number=number&pagelink=page %'); ?></p>    
                     </div>
-                    <div>
-                        <p>
-                        <?php the_tags('Tags: ', ', ', ' | '); ?> <?php the_category(', ') ?> | <a href="<?php the_permalink() ?>">Permalink</a> |  <?php comments_popup_link('Leave a comment', '1 Comment', '% Comments'); ?> | <?php edit_post_link('Edit', ' ', ' | '); ?> Posted <?php the_date() ?> by  <?php the_author_link(); ?> </p>
-                    </div>
-                    <?php if(is_single) comments_template(); ?>
                 </div>
             <?php endif; /* end if page or post */ ?>
         
