@@ -6,13 +6,14 @@
                 <h1><?php wp_title(' ', true, 'right'); ?></h1>
         <?php endif; ?>
         
-        <?php /* begin the loop */ if (have_posts()) : ?>
+        <?php if (have_posts()) : ?>
 		
 		<?php 
 
             $count = 0;
             while (have_posts()) : the_post(); 
             $count ++;
+            $post_image_src = get_post_custom()['wpcf-post-image'][0];
 
         ?>
                 <div class="ga-box-list">
@@ -21,7 +22,7 @@
                         <div class="box-item pull-left col-sm-11 col-xs-11">
                             <p class="ga-box-description"><h4><?php the_title(); ?></h4></p>
                             <a href="<?php the_permalink() ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" class="img-responsive"/>
+                                <img src="<?php echo $post_image_src ?>" class="img-responsive"/>
                             </a>
                             <div class="clearfix"></div>
                             <p class="ga-box-description"><?php the_content('Read more &gt;'); ?> </p>
@@ -40,7 +41,7 @@
 
             ?>
         
-        <?php endwhile; /* end the main loop */ ?>
+        <?php endwhile; ?>
         
         <!-- @todo previous / next post buttons are nice if they have the actual post name in the link -->
         
@@ -54,4 +55,4 @@
         
         <?php endif; /* end if have_posts */ ?>      
     
-<?php /* footer */ get_footer(); ?>
+<?php get_footer(); ?>

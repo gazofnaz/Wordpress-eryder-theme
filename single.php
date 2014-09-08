@@ -4,7 +4,9 @@
 
     <h1><?php the_title(); ?></h1>
 
-    <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" class="img-responsive"/>
+    <?php $post_image_src = get_post_custom()['wpcf-post-image'][0]; ?>
+    
+    <img src="<?php echo $post_image_src ?>" class="img-responsive"/>
 
     <?php 
         the_content();
