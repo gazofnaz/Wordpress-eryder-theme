@@ -1,3 +1,8 @@
+        <!-- See header for openers -->
+        </div><!-- / end content -->
+    </div>
+</div><!-- / end main -->
+
 <footer>
     <div class="container">
         <div class="row">
