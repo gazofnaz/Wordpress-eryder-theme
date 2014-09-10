@@ -1,5 +1,4 @@
         <!-- See header for openers -->
-        </div><!-- / end content -->
     </div>
 </div><!-- / end main -->
 

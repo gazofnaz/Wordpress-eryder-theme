@@ -9,7 +9,7 @@
         <?php if (have_posts()) : ?>
 
         <div class="ga-box-list">
-        
+
 		<?php 
 
             $count = 0;
@@ -21,14 +21,25 @@
             <div class="col-md-4 col-sm-11 no-left-gutter">
                 <!-- first item always has "no-left-gutter"-->
                 <div class="box-item pull-left col-sm-11 col-xs-11">
-                    <p class="ga-box-description"><h4><?php the_title(); ?></h4></p>
+                    <p class="ga-box-description">
+                        <h4>
+                            <a href="<?php the_permalink() ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </h4>
+                    </p>
                     <a href="<?php the_permalink() ?>">
                         <img src="<?php echo $post_image_src ?>" class="img-responsive"/>
                     </a>
                     <div class="clearfix"></div>
-                    <p class="ga-box-description"><?php the_content('Read more &gt;'); ?> </p>
+                    <p class="ga-box-description">
+                        <?php the_content('Read more &gt;'); ?>
+                    </p>
                     <div class="ga-box-links" >
-                        <p class="text-center"><a href="<?php the_permalink() ?>">Find out more...</a></p>
+                        <p class="text-center">
+                            <a href="<?php the_permalink() ?>">Find out more...
+                        </a>
+                        </p>
                     </div>
                 </div>
             </div>

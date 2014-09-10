@@ -1,4 +1,50 @@
 /*--------------*/
+/* BS OVERRIDES START*/
+/*--------------*/
+
+.no-left-gutter{
+    padding-left: 0px !important;
+}
+
+.navbar {
+    min-height: 36px;
+}
+
+.navbar-default {
+    background-color: inherit;
+    border: none;
+}
+
+.nav>li>a{
+    padding-left: 0px;
+}
+
+.navbar-nav>li>a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 16px;
+}
+
+.navbar-nav>li>a:after {
+    font-family: "Glyphicons Halflings";
+    content: "\e146";
+    color: #FFF;
+    margin-left: 5px;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:after,
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #555;
+    background-color: #FFF;
+}
+
+/*--------------*/
+/* BS OVERRIDES END*/
+/*--------------*/
+
+/*--------------*/
 /*ga BOX LIST START*/
 /*--------------*/
 
@@ -8,7 +54,6 @@ and data tools pages
 */
 
 .ga-box-list .box-item{
-    border: 1px solid #D1D1D1;
     padding: 15px;
     margin-bottom: 25px;
     background: #FFF;
