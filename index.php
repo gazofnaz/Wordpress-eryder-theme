@@ -7,7 +7,9 @@
         <?php endif; ?>
         
         <?php if (have_posts()) : ?>
-		
+
+        <div class="ga-box-list">
+        
 		<?php 
 
             $count = 0;
@@ -16,32 +18,32 @@
             $post_image_src = get_post_custom()['wpcf-post-image'][0];
 
         ?>
-                <div class="ga-box-list">
-                    <div class="col-md-4 col-sm-11 no-left-gutter">
-                        <!-- first item always has "no-left-gutter"-->
-                        <div class="box-item pull-left col-sm-11 col-xs-11">
-                            <p class="ga-box-description"><h4><?php the_title(); ?></h4></p>
-                            <a href="<?php the_permalink() ?>">
-                                <img src="<?php echo $post_image_src ?>" class="img-responsive"/>
-                            </a>
-                            <div class="clearfix"></div>
-                            <p class="ga-box-description"><?php the_content('Read more &gt;'); ?> </p>
-                            <div class="ga-box-links" >
-                                <p class="text-center"><a href="<?php the_permalink() ?>">Find out more...</a></p>
-                            </div>
-                        </div>
+            <div class="col-md-4 col-sm-11 no-left-gutter">
+                <!-- first item always has "no-left-gutter"-->
+                <div class="box-item pull-left col-sm-11 col-xs-11">
+                    <p class="ga-box-description"><h4><?php the_title(); ?></h4></p>
+                    <a href="<?php the_permalink() ?>">
+                        <img src="<?php echo $post_image_src ?>" class="img-responsive"/>
+                    </a>
+                    <div class="clearfix"></div>
+                    <p class="ga-box-description"><?php the_content('Read more &gt;'); ?> </p>
+                    <div class="ga-box-links" >
+                        <p class="text-center"><a href="<?php the_permalink() ?>">Find out more...</a></p>
                     </div>
                 </div>
-            <?php 
+            </div>
+        <?php 
 
-                /* fix for variable height items */
-                if( $count % 3 == 0 ){
-                    echo "<div class='clearfix'></div>";
-                }
+            /* fix for variable height items */
+            if( $count % 3 == 0 ){
+                echo "<div class='clearfix'></div>";
+            }
 
-            ?>
+        ?>
         
         <?php endwhile; ?>
+
+        </div><!-- ga-box-list -->
         
         <!-- @todo previous / next post buttons are nice if they have the actual post name in the link -->
         
