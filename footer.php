@@ -26,5 +26,9 @@
 
 </script>
 
+<?php
+/* For common Javascript file includes see functions.php */
+?>
+
 </body>
 </html>
