@@ -32,7 +32,7 @@ add_theme_support('automatic-feed-links');
 function load_all_scripts() {
 
     /* jQuery is included with wordpress by default */
-    
+
     wp_enqueue_script(
         'bootstrap',
         get_stylesheet_directory_uri() . '/js/bootstrap.min.js',
@@ -43,6 +43,12 @@ function load_all_scripts() {
         'caroufresel',
         get_stylesheet_directory_uri() . '/js/jquery.carouFredSel-6.2.1-packed.js',
         array( 'jquery' )
+    );
+
+    wp_enqueue_script(
+        'custom',
+        get_stylesheet_directory_uri() . '/js/custom.js',
+        array( 'jquery', 'bootstrap', 'caroufresel' )
     );
 }
 
