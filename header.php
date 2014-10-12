@@ -33,16 +33,15 @@
                         <?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>
                     </a>
                 </h1>
-                <nav>
-                <?php
-                        $args = array( 'menu'               => 'main', 
-                                       'container_class'    => 'navbar navbar-default', 
-                                       'container'          => 'div', 
-                                       'theme_location'     => 'primary-menu',
-                                       'items_wrap'         => '<ul class="nav navbar-nav">%3$s</ul>');
-                        wp_nav_menu($args);
-                ?>
-                </nav>
+<?php
+                $args = array(  'menu' => 'top_menu',
+                                'depth' => 2,
+                                'container' => false,
+                                'menu_class' => 'nav navbar-nav',
+                                'walker' => new wp_bootstrap_navwalker());
+                
+                wp_nav_menu($args);
+?>
             </div>
         </div>
     </div>
