@@ -1,35 +1,79 @@
-<?php get_header(); ?>
-<div class="col-sm-12">
+<?php
+
+    get_header();
+
+?>
+<div class="row">
+    <div class="col-sm-12">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-    <h1><?php the_title(); ?></h1>
+        <h1><?php the_title(); ?></h1>
+    </div>
+</div>
+<?php 
+    
+    $post_image_src = [];
 
-    <?php $post_image_src = get_post_custom()['wpcf-post-image'][0]; ?>
+    foreach( get_post_custom()['wpcf-post-image'] as $img_src ){
+        $post_image_src[] = $img_src; 
+    }
 
-    <div class="html_carousel">
-        <div id="carousel">
-            <div class="slide">
-                <img src="<?php echo $post_image_src ?>" alt="carousel 1" width="870" height="400" />
-                <div>
-                    <h4>Infinity</h4>
-                    <p>A concept that in many fields refers to a quantity without bound or end.</p>
+?>
+<div class="row">
+    <div class="col-md-12 hidden-sm hidden-xs" id="slider-thumbs">
+        <ul class="list-inline">
+<?php
+
+    foreach( $post_image_src as $index => $img_src ){
+        $img_src = getImageVariaton( $img_src, '-150x150' );
+        // print selected class for first image
+        $isSelected = ( $index == 0 ? ' selected ' : '' );
+        $img_tag = sprintf( '<li><a id="carousel-selector-%s" class="%s"><img src="%s" class="img-responsive" /></a></li>', $index, $isSelected, $img_src );
+        echo $img_tag;
+    }
+
+?>       
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+    <div id="carousel-bounding-box">
+            <div id="postCarousel" class="carousel slide">
+                <div class="carousel-inner">
+<?php
+
+                foreach( $post_image_src as $index => $img_src ){
+                    // print active class for first image
+                    $isActive = ( $index == 0 ? ' active ' : '' );
+                    $img_tag = sprintf( '<div class="%s item" data-slide-number="%s"><img src="%s" class="img-responsive" /></div>', $isActive, $index, $img_src );
+                    echo $img_tag;
+                }
+
+?>
                 </div>
-            </div>
-            <div class="slide">
-                <img src="<?php echo $post_image_src ?>" alt="carousel 1" width="870" height="400" />
-                <div>
-                    <h4>Infinity</h4>
-                    <p>A concept that in many fields refers to a quantity without bound or end.</p>
-                </div>
+                <a class="carousel-control left" href="#postCarousel" data-slide="prev">‹</a>
+                <a class="carousel-control right" href="#postCarousel" data-slide="next">›</a>
             </div>
         </div>
-        <div class="clearfix"></div>
-        <div class="thumbnails" id="carousel_thumbs"></div>
     </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+<?php 
 
-    <?php 
-        the_content();
-        endwhile; endif;
-    ?>
+    the_content();
+    endwhile; endif;
 
-<?php /* footer */ get_footer(); ?>
+?>
+    </div>
+</div>
+
+<?php
+
+   get_footer();
+
+?>
+
+

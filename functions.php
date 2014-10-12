@@ -4,14 +4,14 @@
 if ( function_exists('register_sidebar') ){
     register_sidebar(array('description' => 'Left Sidebar'));
 }
-/**/
+/*---*/
 
 /* nav menus */
 if ( function_exists( 'register_nav_menu' ) ) {
 	register_nav_menu('header_nav', __('Header Navigation Menu'));
 	register_nav_menu('footer_nav', __('Footer Navigation Menu'));	
 }
-/**/
+/*---*/
 
 /* Adds class="active" to currently active menu item */
 add_filter( 'nav_menu_css_class' , 'special_nav_class' , 10 , 2 );
@@ -22,11 +22,11 @@ function special_nav_class( $classes, $item ){
      }
      return $classes;
 }
-/**/
+/*---*/
 
 /* automatic feed links */
 add_theme_support('automatic-feed-links');
-/**/
+/*---*/
 
 /* Javascript Includes for front end */
 function load_all_scripts() {
@@ -40,18 +40,27 @@ function load_all_scripts() {
     );
 
     wp_enqueue_script(
-        'caroufresel',
-        get_stylesheet_directory_uri() . '/js/jquery.carouFredSel-6.2.1-packed.js',
-        array( 'jquery' )
-    );
-
-    wp_enqueue_script(
         'custom',
         get_stylesheet_directory_uri() . '/js/custom.js',
-        array( 'jquery', 'bootstrap', 'caroufresel' )
+        array( 'jquery', 'bootstrap' )
     );
 }
 
-add_action( 'wp_enqueue_scripts', 'load_all_scripts' )
-/**/
+add_action( 'wp_enqueue_scripts', 'load_all_scripts' );
+/*---*/
+
+/** Get Image Variation from String
+ *
+ * Cheap way to get image variations from a basic string (e.g. post field value)
+ *
+ * Takes this: img.src.jpg, -150x150
+ * Returns this: img.src-150x150.jpg
+ *
+ */
+function getImageVariaton( $img_src, $variation ){
+    $ext = pathinfo($img_src, PATHINFO_EXTENSION);
+    $filename = str_replace( '.'.$ext, '', $img_src ).$variation.'.'.$ext;
+    return ( $filename );
+}
+/*---*/
 ?>

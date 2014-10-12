@@ -1,6 +1,5 @@
         <!-- See header for openers -->
-    </div>
-</div><!-- / end main -->
+</div><!-- / main container -->
 
 <footer>
     <div class="container">

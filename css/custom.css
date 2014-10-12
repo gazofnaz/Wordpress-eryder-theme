@@ -140,45 +140,14 @@ and data tools pages
 /*ga BOX LIST END*/
 /*--------------*/
 
-.html_carousel {
-    padding: 15px 0 15px 40px;
+/*--------------*/
+/* Carousel START */
+/*--------------*/
+
+.selected img {
+    opacity:0.5;
 }
-.html_carousel div.slide {
-    position: relative;
-}
-.html_carousel div.slide div {
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 100%;
-    display: none;
-    position: absolute;
-    bottom: 0;
-}
-.html_carousel div.slide h4 {
-    font-size: 35px;
-    padding: 30px 0 0 100px;
-}
-.html_carousel div.slide p {
-    font-size: 16px;
-    padding: 0 0 30px 100px;
-}
-.html_carousel div.slide h4, .html_carousel div.slide p {
-    color: white;
-    margin: 0;
-}
-div.thumbnails {
-    text-align: center;
-}
-div.thumbnails img {
-    cursor: pointer;
-    border: 1px solid #ccc;
-    background-color: white;
-    padding: 9px;
-    margin: 7px;
-    display: inline-block;
-}
-div.thumbnails img:hover {
-    background-color: #eee;
-}
-div.thumbnails img.selected {
-    background-color: #ccc;
-}
+
+/*--------------*/
+/* Carousel END */
+/*--------------*/

@@ -1,31 +1,24 @@
-jQuery(document).ready(function($) {
-    $("#carousel").carouFredSel({
-        items       : 1,
-        scroll      : {
-            fx          : "crossfade"
-        },
-        auto        : false,
-        pagination  : {
-            container       : "#carousel_thumbs",
-            anchorBuilder: function( nr ) { 
-
-                var src = $("img", this).attr( "src" );
-                
-                // Split off the filename with no extension (period + 3 letter extension)
-                var new_src = src.substring(0,src.length-4);
-
-                // Append the "-150x150"
-                new_src += "-150x150";
-
-                // Add the period and the 3 letter extension back on
-                new_src += src.substring(src.length-4,src.length);
-
-                // Set this as the source for our image
-                return '<img src="' + new_src + '" />';
-            }
-        }
+jQuery( document ).ready( function ( $ ) {
+    $('#postCarousel').carousel({
+        interval: 4000
     });
 
+    // handles the carousel thumbnails
+    $('[id^=carousel-selector-]').click( function(){
+      var id_selector = $(this).attr("id");
+      var id = id_selector.substr(id_selector.length -1);
+      id = parseInt(id);
+      $('#postCarousel').carousel(id);
+      $('[id^=carousel-selector-]').removeClass('selected');
+      $(this).addClass('selected');
+    });
 
+    // when the carousel slides, auto update
+    $('#postCarousel').on('slid.bs.carousel', function (e) {
+      var id = $('.item.active').data('slide-number');
+      id = parseInt(id);
+      $('[id^=carousel-selector-]').removeClass('selected');
+      $('[id=carousel-selector-'+id+']').addClass('selected');
+    });
 });
 
