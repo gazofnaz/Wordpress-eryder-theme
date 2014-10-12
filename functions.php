@@ -1,6 +1,15 @@
 <?php
 
-/* Bootstrap Navigation Setup */
+/* automatic feed links */
+add_theme_support('automatic-feed-links');
+/*---*/
+
+/**
+ * Bootstrap Navigation Setup
+ *
+ * http://code.tutsplus.com/tutorials/how-to-integrate-bootstrap-navbar-into-wordpress-theme--wp-33410
+ *
+ */ 
 add_action( 'after_setup_theme', 'wpt_setup' );
     if ( ! function_exists( 'wpt_setup' ) ):
         function wpt_setup() {  
@@ -8,10 +17,6 @@ add_action( 'after_setup_theme', 'wpt_setup' );
         } endif;
 
 require_once('wp_bootstrap_navwalker.php');
-/*---*/
-
-/* automatic feed links */
-add_theme_support('automatic-feed-links');
 /*---*/
 
 /* Javascript Includes for front end */
