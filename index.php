@@ -5,16 +5,16 @@
 ?>
 
 <div class="row">
-    <h1><?php wp_title(); ?></h1>
+    <h1><?php wp_title( '' ); ?></h1>
 </div>
-<?php if (have_posts()) : ?>
+<?php if ( have_posts() ) : ?>
 <div class="row">
     <div class="ga-box-list">
 
 <?php 
 
     $count = 0;
-    while (have_posts()) : the_post(); 
+    while ( have_posts() ) : the_post(); 
     $count ++;
     $post_image_src = getAllPostImages( 1 );
 

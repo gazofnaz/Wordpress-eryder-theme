@@ -83,7 +83,7 @@ function getAllPostImages( $limit = null ){
  *
  */
 function getImageVariaton( $img_src, $variation ){
-    $ext = pathinfo($img_src, PATHINFO_EXTENSION);
+    $ext = pathinfo( $img_src, PATHINFO_EXTENSION );
     $filename = str_replace( '.'.$ext, '', $img_src ).$variation.'.'.$ext;
     return ( $filename );
 }
