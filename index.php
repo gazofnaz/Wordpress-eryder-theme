@@ -16,7 +16,7 @@
     $count = 0;
     while (have_posts()) : the_post(); 
     $count ++;
-    $post_image_src = get_post_custom()['wpcf-post-image'][0];
+    $post_image_src = getAllPostImages( 1 );
 
 ?>
         <div class="col-md-4 col-sm-11 no-left-gutter">
@@ -30,7 +30,7 @@
                     </h4>
                 </p>
                 <a href="<?php the_permalink() ?>">
-                    <img src="<?php echo $post_image_src ?>" class="img-responsive"/>
+                    <img src="<?php echo $post_image_src[0] ?>" class="img-responsive"/>
                 </a>
                 <div class="clearfix"></div>
                 <p class="ga-box-description">

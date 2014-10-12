@@ -5,20 +5,18 @@
 ?>
 <div class="row">
     <div class="col-sm-12">
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    
+<?php 
+
+        if ( have_posts() ) : while ( have_posts() ) : the_post();
+        $post_image_src = getAllPostImages();
+
+?>
 
         <h1><?php the_title(); ?></h1>
     </div>
 </div>
-<?php 
-    
-    $post_image_src = [];
 
-    foreach( get_post_custom()['wpcf-post-image'] as $img_src ){
-        $post_image_src[] = $img_src; 
-    }
-
-?>
 <div class="row">
     <div class="col-md-12 hidden-sm hidden-xs" id="slider-thumbs">
         <ul class="list-inline">

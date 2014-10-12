@@ -49,6 +49,31 @@ function load_all_scripts() {
 add_action( 'wp_enqueue_scripts', 'load_all_scripts' );
 /*---*/
 
+/**
+ * Get all images from the custom post type wpcf-post-image
+ *
+ * Allows a limit to be set, usually to fetch a single image
+ *
+ */
+function getAllPostImages( $limit = null ){
+
+    $post_image_src = [];
+
+    foreach( get_post_custom()['wpcf-post-image'] as $key => $img_src ){
+        
+        // allow for limited number to be returned
+        if(  $key +1 > $limit ){
+            continue;
+        }
+
+        $post_image_src[] = $img_src; 
+
+    }
+
+    return $post_image_src;
+
+}
+
 /** Get Image Variation from String
  *
  * Cheap way to get image variations from a basic string (e.g. post field value)
