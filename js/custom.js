@@ -1,6 +1,8 @@
 jQuery( document ).ready( function ( $ ) {
+
+    // http://www.bootply.com/79859
     $('#postCarousel').carousel({
-        interval: 4000
+        interval: 7000
     });
 
     // handles the carousel thumbnails
@@ -20,5 +22,6 @@ jQuery( document ).ready( function ( $ ) {
       $('[id^=carousel-selector-]').removeClass('selected');
       $('[id=carousel-selector-'+id+']').addClass('selected');
     });
+
 });
 
