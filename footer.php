@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <p>&copy; <?php echo date('Y') ?> <a href="<?php bloginfo('url') ?>">
+                <p class="text-center">&copy; <?php echo date('Y') ?> <a href="<?php bloginfo('url') ?>">
                 <?php bloginfo('name') ?>
                 </a> | Theme by <a href="http://garetharnott.com" title="Gareth Arnott">Gareth Arnott</a></p>
                 <?php wp_footer(); ?>
@@ -20,7 +20,7 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-54674137-1', 'auto');
+    ga('create', 'UA-54674137-1', {'siteSpeedSampleRate': 100});
     ga('send', 'pageview');
 
 </script>
