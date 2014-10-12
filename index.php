@@ -18,6 +18,10 @@
     $count ++;
     $post_image_src = getAllPostImages( 1 );
 
+    if( $count % 3 == 0 ){
+        echo '<div class="row">';
+    }
+
 ?>
         <div class="col-md-4 col-sm-11 no-left-gutter">
             <!-- first item always has "no-left-gutter"-->
@@ -46,9 +50,8 @@
         </div>
 <?php 
 
-    /* fix for variable height items */
     if( $count % 3 == 0 ){
-        echo "<div class='clearfix'></div>";
+        echo '</div>';
     }
 
 ?>
