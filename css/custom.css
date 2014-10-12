@@ -2,6 +2,10 @@
 /* BS OVERRIDES START*/
 /*--------------*/
 
+body{
+    padding-top: 20px;
+}
+
 .no-left-gutter{
     padding-left: 0px !important;
 }
@@ -116,13 +120,13 @@ and data tools pages
 }
 
 .ga-box-links a{
-    border: 1px solid #8897AE;
+    border: 1px solid #5B345B;
     display: block;
     padding: 10px 0;
 }
 
 .ga-box-links a:hover {
-    background-color: #8897AE;
+    background-color: #5B345B;
     color: #FFF;
     text-decoration: none;
 }
