@@ -14,8 +14,8 @@
 </div>
 
 <div class="row">
-    <div class="col-md-12 hidden-sm hidden-xs" id="slider-thumbs">
-        <ul class="list-inline">
+    <div class="col-md-12 hidden-sm hidden-xs">
+        <ul class="list-inline" id="slider-thumbs">
 <?php
 
     foreach( $post_image_src as $index => $img_src ){

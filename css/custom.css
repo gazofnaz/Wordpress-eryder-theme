@@ -152,6 +152,10 @@ and data tools pages
 /* Carousel START */
 /*--------------*/
 
+#slider-thumbs{
+    margin-top: 10px;
+}
+
 #slider-thumbs img{
     width: 75px;
 }
