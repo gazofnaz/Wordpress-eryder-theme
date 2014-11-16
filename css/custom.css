@@ -166,7 +166,7 @@ and data tools pages
 /*--------------*/
 
 /*--------------*/
-/* Carousel START */
+/* CAROUSEL START */
 /*--------------*/
 
 #slider-thumbs{
@@ -195,5 +195,23 @@ and data tools pages
 }
 
 /*--------------*/
-/* Carousel END */
+/* CAROUSEL END */
+/*--------------*/
+
+/*--------------*/
+/* FOOTER START */
+/*--------------*/
+
+footer p{
+    margin: 0;
+    line-height: 3.0;
+}
+
+footer ul{
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+/*--------------*/
+/* FOOTER END */
 /*--------------*/
