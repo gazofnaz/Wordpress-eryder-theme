@@ -28,8 +28,8 @@
 ?>
                 </div>
 <?php
-// only show arrows if we have more than one image       
-if( count( $post_image_src > 1 ) ):
+// only show arrows if we have more than one image
+if( count( $post_image_src ) > 1 ):
 ?>
                 <a class="carousel-control left" href="#postCarousel" data-slide="next">
                     <span class="glyphicon glyphicon glyphicon-chevron-left"></span>
