@@ -62,6 +62,12 @@ function getAllPostImages( $limit = null ){
             continue;
         }
 
+        // just in case an image goes missing.
+        // Annoyingly getimagesize throws a warning instead of returning false.
+        if ( !@getimagesize( $img_src ) ) {
+            continue;
+        }
+
         $post_image_src[] = $img_src; 
 
     }
