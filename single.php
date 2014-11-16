@@ -47,8 +47,12 @@
 
 ?>
                 </div>
-                <a class="carousel-control left" href="#postCarousel" data-slide="prev">‹</a>
-                <a class="carousel-control right" href="#postCarousel" data-slide="next">›</a>
+                <a class="carousel-control left" href="#postCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="carousel-control right" href="#postCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon glyphicon-chevron-right"></span>
+                </a>
             </div>
         </div>
     </div>

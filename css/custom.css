@@ -139,8 +139,25 @@ and data tools pages
 /* Carousel START */
 /*--------------*/
 
+#slider-thumbs img{
+    width: 75px;
+}
+
 .selected img {
     opacity:0.5;
+}
+
+.carousel-control.right,
+.carousel-control.left{
+    background: none;
+}
+
+.carousel-control{
+    colour: #F8F8F8;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
 }
 
 /*--------------*/
