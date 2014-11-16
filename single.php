@@ -15,7 +15,7 @@
 
 <div class="row">
     <div class="col-md-12 hidden-sm hidden-xs">
-        <div class="col-md-12 bg-dark-grey-top">
+        <div class="col-md-12 carousel-bg-top">
             <ul class="list-inline" id="slider-thumbs">
 <?php
 
@@ -35,7 +35,7 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="col-md-12 bg-dark-grey-bottom">
+        <div class="col-md-12 carousel-bg-bottom">
             <div id="carousel-bounding-box">
                 <div id="postCarousel" class="carousel slide">
                     <div class="carousel-inner">
