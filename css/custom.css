@@ -10,13 +10,13 @@ body{
     padding-left: 0px !important;
 }
 
-/* We only have 3 elements, make them all wider */
+/* We only have 2 elements, make them all wider */
 .navbar-nav {
     width: 60%;
 }
 
 .navbar-nav>li {
-    width: 33%;
+    width: 50%;
     text-align: center;
 }
 
@@ -40,7 +40,19 @@ body{
 /*--------------*/
 
 /*--------------*/
-/*ga BOX LIST START*/
+/* HEADER START */
+/*--------------*/
+
+.navbar-brand .glyphicon{
+    top: 2px;
+}
+
+/*--------------*/
+/* HEADER END */
+/*--------------*/
+
+/*--------------*/
+/*BOX LIST START*/
 /*--------------*/
 
 /*
@@ -132,7 +144,7 @@ and data tools pages
 }
 
 /*--------------*/
-/*ga BOX LIST END*/
+/* BOX LIST END*/
 /*--------------*/
 
 /*--------------*/

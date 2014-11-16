@@ -36,9 +36,12 @@
                             <span class="icon-bar"></span> 
                             <span class="icon-bar"></span> 
                         </button> 
-                        <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
-                            <?php bloginfo('name'); ?> - <small><?php bloginfo('description'); ?></small>
-                        </a>
+                        
+                            <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
+                                <span class="glyphicon glyphicon glyphicon-home"></span> 
+                                <?php bloginfo('name'); ?> - <small><?php bloginfo('description'); ?></small>
+                            </a>
+                        
                     </div> 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <?php
