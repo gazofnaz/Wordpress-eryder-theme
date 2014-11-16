@@ -57,6 +57,11 @@ function getAllPostImages( $limit = null ){
             continue;
         }
 
+        // backend allows for empty strings, which looks bad in the front end.
+        if( $img_src == '' ){
+            continue;
+        }
+
         $post_image_src[] = $img_src; 
 
     }
