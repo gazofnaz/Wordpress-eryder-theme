@@ -28,17 +28,17 @@
         <div class="col-md-4 col-sm-11 no-left-gutter">
             <!-- first item always has "no-left-gutter"-->
             <div class="box-item pull-left col-sm-11 col-xs-11">
-                <p class="ga-box-description">
-                    <h4>
-                        <a href="<?php the_permalink() ?>">
-                            <?php the_title(); ?>
-                        </a>
-                    </h4>
-                </p>
                 <a href="<?php the_permalink() ?>">
                     <img src="<?php echo $post_image_src[0] ?>" class="img-responsive"/>
                 </a>
                 <div class="clearfix"></div>
+                <p class="ga-box-description">
+                    <h3>
+                        <a href="<?php the_permalink() ?>">
+                            <?php the_title(); ?>
+                        </a>
+                    </h3>
+                </p>
                 <p class="ga-box-description">
                     <?php the_content('Read more &gt;'); ?>
                 </p>
