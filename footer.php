@@ -15,9 +15,11 @@
 
                     wp_nav_menu( $args); 
 ?>
-                    <p class="text-center">&copy; <?php echo date('Y') ?> <a href="<?php bloginfo('url') ?>">
-                    <?php bloginfo('name') ?>
-                    </a> | Theme by <a href="http://garetharnott.com" title="Gareth Arnott">Gareth Arnott</a></p>
+                    <p class="text-center"><a href="<?php bloginfo('url') ?>">
+                    <?php bloginfo('name') ?> 
+                    </a> 
+                    &copy;
+                    | Theme by <a href="http://garetharnott.com" title="Gareth Arnott">Gareth Arnott</a></p>
                     <?php wp_footer(); ?>
                 </div>
             </div>
