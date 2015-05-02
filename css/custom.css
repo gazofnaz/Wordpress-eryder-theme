@@ -169,61 +169,9 @@ and data tools pages
 /* CAROUSEL START */
 /*--------------*/
 
-/* @todo cross browser options */
-.carousel-bg-top{
+.carousel-box{
     background: #E0E0E0;
-    background: linear-gradient(to bottom, rgba(224,224,224,1) 0%, rgba(248,248,248,1) 100%);
-}
-
-/* @todo cross browser options */
-.carousel-bg-bottom{
-    background: #E0E0E0;
-    background: linear-gradient(to bottom, rgba(248,248,248,1) 0%, rgba(224,224,224,1) 100%);
-}
-
-#slider-thumbs{
-    margin-top: 15px;
-}
-
-#slider-thumbs img{
-    width: 75px;
-}
-
-#slider-thumbs.list-inline{
-    text-align: center;
-    margin-left: -45px;
-}
-
-#slider-thumbs.list-inline>li{
-    margin-right: 7.5px;
-}
-
-.selected img{
-    opacity:0.5;
-}
-
-.carousel-control.right,
-.carousel-control.left{
-    background: none;
-}
-
-.carousel-control{
-    colour: #F8F8F8;
-}
-
-.carousel-inner > .item > img{
-    margin: 0 auto;
-}
-
-#carousel-bounding-box{
-    padding-bottom: 15px;
-}
-
-/* We hide the tumbnails in mobile, so need padding here */
-@media ( max-width: 992px ){
-    #carousel-bounding-box{
-        padding-top: 15px;
-    }
+    padding: 15px;
 }
 
 /*--------------*/

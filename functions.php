@@ -137,35 +137,27 @@ function parse_gallery_shortcode($atts) {
  
     $images = get_posts( $args );
 
-    echo '<div class="picture" itemscope itemtype="http://schema.org/ImageGallery">';
-    echo '<ul class="list-inline">';
     foreach ( $images as $key => $image ) {
-        $image_alt = get_post_meta( $image->ID,'_wp_attachment_image_alt', true );
+
         if( $key == 0 ){
-            $image_thumb_data = wp_get_attachment_image_src( $image->ID, 'medium' );
-            $image_full_data = wp_get_attachment_image_src( $image->ID, 'full' );
-            echo '<li>';
-            echo sprintf( '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-index="%s">', $key );
-            echo sprintf( '<a href="%s" itemprop="contentUrl" data-size="%sx%s">', $image_full_data[0], $image_full_data[1], $image_full_data[2] );
-            echo sprintf( '<img src="%s" width="%s" height="%s" itemprop="thumbnail" alt="%s" />', $image_thumb_data[0], $image_thumb_data[1], $image_thumb_data[2], $image_alt );
-            echo '</a>';
-            echo '</figure>';
-            echo '</li>';
+            $image_thumb_data = wp_get_attachment_image_src( $image->ID, 'full' );
         }
         else{
             $image_thumb_data = wp_get_attachment_image_src( $image->ID );
-            $image_full_data = wp_get_attachment_image_src( $image->ID, 'full' );
-            echo '<li>';
-            echo sprintf( '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-index="%s">', $key );
-            echo sprintf( '<a href="%s" itemprop="contentUrl" data-size="%sx%s">', $image_full_data[0], $image_full_data[1], $image_full_data[2] );
-            echo sprintf( '<img src="%s" width="%s" height="%s" itemprop="thumbnail" alt="%s" />', $image_thumb_data[0], $image_thumb_data[1], $image_thumb_data[2], $image_alt );
-            echo '</a>';
-            echo '</figure>';
-            echo '</li>';
         }
+
+        $image_alt = get_post_meta( $image->ID, '_wp_attachment_image_alt', true );
+        $image_full_data = wp_get_attachment_image_src( $image->ID, 'full' );
+        
+        $image_tag .= "<li><figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject' data-index='{$key}'>";
+        $image_tag .= "<a href='{$image_full_data[0]}' itemprop='contentUrl' data-size='{$image_full_data[1]}x{$image_full_data[2]}'>";
+        $image_tag .= "<img class='img-responsive' src='{$image_thumb_data[0]}' width='{$image_thumb_data[1]}' height='{$image_thumb_data[2]}' itemprop='thumbnail' alt='{$image_alt}' />";
+        $image_tag .= "</a></figure></li>";
+
     }
-    echo '</ul>';
-    echo '</div>';
+    
+    echo $image_tag;
+
 }
 
 ?>

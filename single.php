@@ -15,14 +15,17 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="col-md-12 carousel-bg-bottom">
-            <div id="carousel-bounding-box">
+        <div class="carousel-box">
+            <div class="picture" itemscope itemtype="http://schema.org/ImageGallery">
+                <ul class="list-inline">
 <?php
 
-                        the_content();
-                        endwhile; endif;
+            the_content();
+            endwhile; endif;
 
 ?>
+
+                </ul>
             </div>
         </div>
     </div>
