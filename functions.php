@@ -50,7 +50,11 @@ function getAllPostImages( $limit = null ){
 
     $post_image_src = [];
 
-    foreach( get_post_custom()['wpcf-post-image'] as $key => $img_src ){
+    if( ! $customFieldData = get_post_custom()['wpcf-post-image'] ){
+        $customFieldData = array();
+    }
+
+    foreach( $customFieldData as $key => $img_src ){
         
         // allow for limited number to be returned
         if( $limit &&  $key +1 > $limit ){
