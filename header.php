@@ -11,6 +11,8 @@
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
         <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/custom.css">
+        <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/photoswipe.css">
+        <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/default-skin/default-skin.css">
         <!--Uncomment this to use a favicon.ico in the theme directory: -->
         <!--<link rel="SHORTCUT ICON" href="<?php bloginfo('template_directory'); ?>/favicon.ico"/>-->
 

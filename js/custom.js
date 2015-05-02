@@ -1,27 +1,44 @@
 jQuery( document ).ready( function ( $ ) {
 
-    // http://www.bootply.com/79859
-    $('#postCarousel').carousel({
-        interval: 7000
-    });
+  $('.picture').each( function() {
+      var $pic     = $(this),
+          getItems = function() {
+              var items = [];
+              $pic.find('a').each(function() {
+                  var $href   = $(this).attr('href'),
+                      $size   = $(this).data('size').split('x'),
+                      $width  = $size[0],
+                      $height = $size[1];
+   
+                  var item = {
+                      src : $href,
+                      w   : $width,
+                      h   : $height
+                  }
+   
+                  items.push(item);
+              });
+              return items;
+          }
+   
+      var items = getItems();
+      var $pswp = $('.pswp')[0];
+      $pic.on('click', 'figure', function(event) {
+          event.preventDefault();
+           
+          var $index = $(this).index();
+          var options = {
+              index: $index,
+              bgOpacity: 0.7,
+              showHideOpacity: true
+          }
+           
+          // Initialize PhotoSwipe
+          var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+          lightBox.init();
+      });
 
-    // handles the carousel thumbnails
-    $('[id^=carousel-selector-]').click( function(){
-      var id_selector = $(this).attr("id");
-      var id = id_selector.substr(id_selector.length -1);
-      id = parseInt(id);
-      $('#postCarousel').carousel(id);
-      $('[id^=carousel-selector-]').removeClass('selected');
-      $(this).addClass('selected');
-    });
-
-    // when the carousel slides, auto update
-    $('#postCarousel').on('slid.bs.carousel', function (e) {
-      var id = $('.item.active').data('slide-number');
-      id = parseInt(id);
-      $('[id^=carousel-selector-]').removeClass('selected');
-      $('[id=carousel-selector-'+id+']').addClass('selected');
-    });
+  });
 
 });
 
