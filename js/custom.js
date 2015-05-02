@@ -26,7 +26,7 @@ jQuery( document ).ready( function ( $ ) {
       $pic.on('click', 'figure', function(event) {
           event.preventDefault();
            
-          var $index = $(this).index();
+          var $index = $(this).data('index');
           var options = {
               index: $index,
               bgOpacity: 0.7,

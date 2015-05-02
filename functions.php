@@ -94,8 +94,8 @@ function getAllPostImages( $limit = null ){
 }
 
 /** @todo create plugin */
-remove_shortcode('gallery');
-add_shortcode('gallery', 'parse_gallery_shortcode');
+remove_shortcode( 'gallery' );
+add_shortcode( 'gallery', 'parse_gallery_shortcode' );
 
 function parse_gallery_shortcode($atts) {
  
@@ -103,82 +103,69 @@ function parse_gallery_shortcode($atts) {
  
     if ( ! empty( $atts['ids'] ) ) {
         // 'ids' is explicitly ordered, unless you specify otherwise.
-        if ( empty( $atts['orderby'] ) )
+        if ( empty( $atts['orderby'] ) ){
             $atts['orderby'] = 'post__in';
+        }   
         $atts['include'] = $atts['ids'];
     }
  
-    extract(shortcode_atts(array(
-        'orderby' => 'menu_order ASC, ID ASC',
-        'include' => '',
-        'id' => $post->ID,
-        'itemtag' => 'dl',
-        'icontag' => 'dt',
-        'captiontag' => 'dd',
-        'columns' => 3,
-        'size' => 'thumbnail',
-        'link' => 'file'
-    ), $atts));
- 
- 
+    extract( shortcode_atts( array(
+        'orderby'       => 'menu_order ASC, ID ASC',
+        'include'       => '',
+        'id'            => $post->ID,
+        'itemtag'       => 'dl',
+        'icontag'       => 'dt',
+        'captiontag'    => 'dd',
+        'columns'       => 3,
+        'size'          => 'thumbnail',
+        'link'          => 'file'
+    ), $atts ) );
+
     $args = array(
-        'post_type' => 'attachment',
-        'post_status' => 'inherit',
-        'post_mime_type' => 'image',
-        'orderby' => $orderby
+        'post_type'         => 'attachment',
+        'post_status'       => 'inherit',
+        'post_mime_type'    => 'image',
+        'orderby'           => $orderby
     );
  
-    if ( !empty($include) )
+    if ( !empty( $include ) )
         $args['include'] = $include;
     else {
         $args['post_parent'] = $id;
         $args['numberposts'] = -1;
     }
  
-    $images = get_posts($args);
-    
-    echo '<div class="picture" itemscope itemtype="http://schema.org/ImageGallery">';
-    foreach ( $images as $image ) {     
-        $caption = $image->post_excerpt;
- 
-        $description = $image->post_content;
-        if($description == '') $description = $image->post_title;
- 
-        $image_alt = get_post_meta($image->ID,'_wp_attachment_image_alt', true);
-        
-        $image_thumb_data = wp_get_attachment_image_src( $image->ID );
-        $image_full_data = wp_get_attachment_image_src( $image->ID, 'full' );
-        // var_dump('<pre>');
-        // var_dump($image_thumb_data);
-        // var_dump($image_full_data);
-        // var_dump('</pre>');
+    $images = get_posts( $args );
 
-        echo '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">';
-        echo sprintf( '<a href="%s" itemprop="contentUrl" data-size="%sx%s" data-index="1">', $image_full_data[0], $image_full_data[1], $image_full_data[2] );
-        echo sprintf( '<img src="%s" height="%s" width="%s" itemprop="thumbnail" alt="%s" />', $image_thumb_data[0], $image_thumb_data[1], $image_thumb_data[2], $image_alt );
-        echo '</a>';
-        echo '</figure>';
-        // render your gallery here
-        // echo '<a href="" itemprop="contentUrl" data-size="150x150" data-index="1">';
-        // echo wp_get_attachment_image( $image->ID, $size, 0, array( 'itemprop' => 'thumbnail' ) );
-        // echo '</a>';
+    echo '<div class="picture" itemscope itemtype="http://schema.org/ImageGallery">';
+    echo '<ul class="list-inline">';
+    foreach ( $images as $key => $image ) {
+        $image_alt = get_post_meta( $image->ID,'_wp_attachment_image_alt', true );
+        if( $key == 0 ){
+            $image_thumb_data = wp_get_attachment_image_src( $image->ID, 'medium' );
+            $image_full_data = wp_get_attachment_image_src( $image->ID, 'full' );
+            echo '<li>';
+            echo sprintf( '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-index="%s">', $key );
+            echo sprintf( '<a href="%s" itemprop="contentUrl" data-size="%sx%s">', $image_full_data[0], $image_full_data[1], $image_full_data[2] );
+            echo sprintf( '<img src="%s" width="%s" height="%s" itemprop="thumbnail" alt="%s" />', $image_thumb_data[0], $image_thumb_data[1], $image_thumb_data[2], $image_alt );
+            echo '</a>';
+            echo '</figure>';
+            echo '</li>';
+        }
+        else{
+            $image_thumb_data = wp_get_attachment_image_src( $image->ID );
+            $image_full_data = wp_get_attachment_image_src( $image->ID, 'full' );
+            echo '<li>';
+            echo sprintf( '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-index="%s">', $key );
+            echo sprintf( '<a href="%s" itemprop="contentUrl" data-size="%sx%s">', $image_full_data[0], $image_full_data[1], $image_full_data[2] );
+            echo sprintf( '<img src="%s" width="%s" height="%s" itemprop="thumbnail" alt="%s" />', $image_thumb_data[0], $image_thumb_data[1], $image_thumb_data[2], $image_alt );
+            echo '</a>';
+            echo '</figure>';
+            echo '</li>';
+        }
     }
+    echo '</ul>';
     echo '</div>';
 }
 
-
-/** Get Image Variation from String
- *
- * Cheap way to get image variations from a basic string (e.g. post field value)
- *
- * Takes this: img.src.jpg, -150x150
- * Returns this: img.src-150x150.jpg
- *
- */
-function getImageVariaton( $img_src, $variation ){
-    $ext = pathinfo( $img_src, PATHINFO_EXTENSION );
-    $filename = str_replace( '.'.$ext, '', $img_src ).$variation.'.'.$ext;
-    return ( $filename );
-}
-/*---*/
 ?>
