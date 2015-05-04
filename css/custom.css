@@ -52,6 +52,18 @@ h1, h2, h3, h4, h5, h6{
     min-width: 260px;
 }
 
+.bottom-buffer{ 
+    margin-bottom: 20px;
+}
+
+.right-buffer{ 
+    margin-right: 20px;
+}
+
+.inline{
+    display: inline !important;
+}
+
 /*--------------*/
 /* BS OVERRIDES END*/
 /*--------------*/

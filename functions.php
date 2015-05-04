@@ -97,6 +97,7 @@ function getAllPostImages( $limit = null ){
 remove_shortcode( 'gallery' );
 add_shortcode( 'gallery', 'parse_gallery_shortcode' );
 
+/** @todo Build a framework just like wordpress but not shit. */
 function parse_gallery_shortcode($atts) {
  
     global $post;
@@ -134,30 +135,57 @@ function parse_gallery_shortcode($atts) {
         $args['post_parent'] = $id;
         $args['numberposts'] = -1;
     }
- 
+    
     $images = get_posts( $args );
 
+    $image_tag = '';
+    $image_tag .= "<div class='picture' itemscope itemtype='http://schema.org/ImageGallery'><div class='row'>";
+
+    $first_image = $images[0];
+
+    $first_image_alt = get_post_meta( $first_image->ID, '_wp_attachment_image_alt', true );
+    $first_image_full_data = wp_get_attachment_image_src( $first_image->ID, 'full' );
+    $first_image_thumb_data = wp_get_attachment_image_src( $first_image->ID, 'large-thumb' );
+
+    $image_tag .= <<<EOT
+<div class='col-md-5'>
+    <figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject' data-index='0'>
+        <a href='{$first_image_full_data[0]}' itemprop='contentUrl' data-size='{$first_image_full_data[1]}x{$first_image_full_data[2]}'>
+            <img class="img-responsive bottom-buffer" src='{$first_image_thumb_data[0]}' width='{$first_image_thumb_data[1]}' height='{$first_image_thumb_data[2]}' itemprop='thumbnail' alt='{$first_image_alt}' />
+        </a>
+    </figure>
+</div>
+EOT;
+
+    $image_tag .= "<div class='col-md-7'>";
     foreach ( $images as $key => $image ) {
 
-        if( $key == 0 ){
-            $image_thumb_data = wp_get_attachment_image_src( $image->ID, 'full' );
-        }
-        else{
+
+        if( $key != 0 ){
             $image_thumb_data = wp_get_attachment_image_src( $image->ID );
+            $image_alt = get_post_meta( $image->ID, '_wp_attachment_image_alt', true );
+            $image_full_data = wp_get_attachment_image_src( $image->ID, full );
+            $image_tag .= <<<EOT
+<figure class="inline" itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject' data-index='{$key}'>
+    <a href='{$image_full_data[0]}' itemprop='contentUrl' data-size='{$image_full_data[1]}x{$image_full_data[2]}'>
+        <img class="right-buffer bottom-buffer" src='{$image_thumb_data[0]}' width='{$image_thumb_data[1]}' height='{$image_thumb_data[2]}' itemprop='thumbnail' alt='{$image_alt}' />
+    </a>
+</figure>
+EOT;
         }
-
-        $image_alt = get_post_meta( $image->ID, '_wp_attachment_image_alt', true );
-        $image_full_data = wp_get_attachment_image_src( $image->ID, 'full' );
-        
-        $image_tag .= "<li><figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject' data-index='{$key}'>";
-        $image_tag .= "<a href='{$image_full_data[0]}' itemprop='contentUrl' data-size='{$image_full_data[1]}x{$image_full_data[2]}'>";
-        $image_tag .= "<img class='img-responsive' src='{$image_thumb_data[0]}' width='{$image_thumb_data[1]}' height='{$image_thumb_data[2]}' itemprop='thumbnail' alt='{$image_alt}' />";
-        $image_tag .= "</a></figure></li>";
-
     }
+
+    $image_tag .= "</div>";
+    $image_tag .= "</div></div>";
     
     echo $image_tag;
 
+}
+
+add_action( 'after_setup_theme', 'eryder_theme_setup' );
+function eryder_theme_setup() {
+    // custom auto large thumbnail size
+    add_image_size( 'large-thumb', 450, 450, true );
 }
 
 ?>

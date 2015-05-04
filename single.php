@@ -16,17 +16,12 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="carousel-box">
-            <div class="picture" itemscope itemtype="http://schema.org/ImageGallery">
-                <ul class="list-inline">
 <?php
 
             the_content();
             endwhile; endif;
 
 ?>
-
-                </ul>
-            </div>
         </div>
     </div>
 </div>
