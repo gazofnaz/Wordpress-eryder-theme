@@ -5,23 +5,12 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="navbar navbar-default">
-<?php 
-                    $args = array(
-                        'menu_class' =>'list-inline text-center',
-                        'container'  => '',
-                        'depth' => -1,
-                        );
-
-                    wp_nav_menu( $args); 
-?>
-                    <p class="text-center"><a href="<?php bloginfo('url') ?>">
-                    <?php bloginfo('name') ?> 
-                    </a> 
-                    &copy;
-                    | Theme by <a href="http://garetharnott.com" title="Gareth Arnott">Gareth Arnott</a></p>
-                    <?php wp_footer(); ?>
-                </div>
+                <p><a href="<?php bloginfo('url') ?>">
+                <?php bloginfo('name') ?>
+                </a>
+                &copy;
+                | Theme by <a href="http://garetharnott.com" title="Gareth Arnott">Gareth Arnott</a></p>
+                <?php wp_footer(); ?>
             </div>
         </div>
     </div>

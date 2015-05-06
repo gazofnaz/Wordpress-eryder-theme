@@ -188,4 +188,7 @@ function eryder_theme_setup() {
     add_image_size( 'large-thumb', 450, 450, true );
 }
 
+/** hide admin bar from front end */
+add_filter( 'show_admin_bar', '__return_false' );
+
 ?>

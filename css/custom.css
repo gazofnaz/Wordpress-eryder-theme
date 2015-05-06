@@ -2,21 +2,29 @@
 /* BS OVERRIDES START*/
 /*--------------*/
 
-body{
-    padding-top: 20px;
+header{
+    background-color: #333;
 }
 
 h1, h2, h3, h4, h5, h6{
     color: #676767;
 }
 
+h1{
+    font-size: 28px;
+}
+
 .no-left-gutter{
     padding-left: 0px !important;
 }
 
+.navbar{
+    margin-bottom: 0px;
+}
+
 /* We only have 2 elements, make them all wider */
 .navbar-nav {
-    width: 60%;
+    width: 35%;
 }
 
 .navbar-nav>li {
@@ -34,22 +42,50 @@ h1, h2, h3, h4, h5, h6{
     }
 }
 
-.navbar-nav>li {
-    border-left: 1px solid #E7E7E7;
+.navbar-default{
+    background-color: inherit;
+    border: 0;
+}
+
+.navbar-brand{
+    padding-left: 0px;
 }
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav>li>a{
-    color: #5A5A5A
+    color: #E7E7E7;
+}
+
+.navbar-default .navbar-nav>li>a{
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus{
+    background-color: #7B7B7B;
+    color: #FFF;
 }
 
 .navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover{
-    color: #5B345B;
+    color: #DFEA7B;
 }
 
 .dropdown-menu{
-    min-width: 260px;
+    min-width: 100%;
+    text-align: center;
+    font-size: 16px;
+    background-color: #7B7B7B;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.dropdown-menu>li>a{
+    color: #FFF;
 }
 
 .bottom-buffer{ 
@@ -162,13 +198,13 @@ and data tools pages
 }
 
 .ga-box-links a{
-    border: 1px solid #5B345B;
+    border: 1px solid #DFEA7B;
     display: block;
     padding: 10px 0;
 }
 
 .ga-box-links a:hover {
-    background-color: #5B345B;
+    background-color: #DFEA7B;
     color: #FFF;
     text-decoration: none;
 }
@@ -177,18 +213,6 @@ and data tools pages
 /* BOX LIST END*/
 /*--------------*/
 
-/*--------------*/
-/* CAROUSEL START */
-/*--------------*/
-
-.carousel-box{
-    background: #E0E0E0;
-    padding: 15px;
-}
-
-/*--------------*/
-/* CAROUSEL END */
-/*--------------*/
 
 /*--------------*/
 /* FOOTER START */

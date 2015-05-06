@@ -12,20 +12,16 @@
         <h1><?php the_title( '' ); ?></h1>
     </div>
 </div>
-
 <div class="row">
     <div class="col-sm-12">
-        <div class="carousel-box">
 <?php
 
-            the_content();
-            endwhile; endif;
+        the_content();
+        endwhile; endif;
 
 ?>
-        </div>
     </div>
 </div>
-
 
 <?php
 
