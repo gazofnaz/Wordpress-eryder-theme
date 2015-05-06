@@ -42,6 +42,12 @@ h1{
     }
 }
 
+@media ( min-width: 768px ) and ( max-width: 991px ) {
+    .navbar-nav {
+        width: 50%;
+    }
+}
+
 .navbar-default{
     background-color: inherit;
     border: 0;
@@ -82,10 +88,14 @@ h1{
     border: none;
     border-radius: 0;
     box-shadow: none;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .dropdown-menu>li>a{
     color: #FFF;
+    min-height: 20px;
+    line-height: 3;
 }
 
 .bottom-buffer{ 
