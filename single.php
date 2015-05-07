@@ -9,17 +9,14 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <h1><?php the_title( '' ); ?></h1>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
+        <div id="the-content">
 <?php
 
         the_content();
         endwhile; endif;
 
 ?>
+        </div>
     </div>
 </div>
 

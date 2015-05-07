@@ -178,7 +178,7 @@ EOT;
     $image_tag .= "</div>";
     $image_tag .= "</div></div>";
     
-    echo $image_tag;
+    return $image_tag;
 
 }
 
@@ -187,6 +187,14 @@ function eryder_theme_setup() {
     // custom auto large thumbnail size
     add_image_size( 'large-thumb', 450, 450, true );
 }
+
+/** Allow post title to be inserted into post content */
+function shortcode_title( ){
+    $the_title = get_the_title();
+    $the_title = sprintf( '<h1>%s</h1>', $the_title );
+    return $the_title;
+}
+add_shortcode( 'page_title', 'shortcode_title' );
 
 /** hide admin bar from front end */
 add_filter( 'show_admin_bar', '__return_false' );

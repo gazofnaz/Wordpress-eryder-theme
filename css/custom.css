@@ -10,10 +10,6 @@ h1, h2, h3, h4, h5, h6{
     color: #676767;
 }
 
-h1{
-    font-size: 28px;
-}
-
 .no-left-gutter{
     padding-left: 0px !important;
 }
@@ -71,12 +67,19 @@ h1{
 .navbar-default .navbar-nav>.open>a:hover,
 .navbar-default .navbar-nav>.open>a:focus{
     background-color: #7B7B7B;
+    transition: color 0.5s ease;
     color: #FFF;
+}
+
+.navbar-default .navbar-nav>.open>a:hover{
+    transition: color 0.5s ease;
+    color: #DFEA7B;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover{
+    transition: color 0.5s ease;
     color: #DFEA7B;
 }
 
@@ -100,14 +103,21 @@ h1{
 
 .dropdown-menu>li>a:hover,
 .dropdown-menu>li>a:focus{
-    color: #FFF;
+    transition: color 0.5s ease;
+    color: #DFEA7B;
     background-color: #333;
 }
 
 .dropdown-menu>.active>a,
 .dropdown-menu>.active>a:hover,
 .dropdown-menu>.active>a:focus{
+    transition: color 0.5s ease;
     background-color: #575757;
+}
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus{
+    transition: color 0.5s ease;
+    color: #DFEA7B;
 }
 
 .bottom-buffer{ 
@@ -235,6 +245,18 @@ and data tools pages
 /* BOX LIST END*/
 /*--------------*/
 
+/*--------------*/
+/* BODY START*/
+/*--------------*/
+
+#the-content{
+    margin-top: 20px;
+}
+
+/*--------------*/
+/* BODY End*/
+/*--------------*/
+
 
 /*--------------*/
 /* FOOTER START */
@@ -270,6 +292,12 @@ footer ul{
 
 footer a{
     color: #FFF;
+}
+
+footer a:hover{
+    transition: color 0.5s ease;
+    color: #DFEA7B;
+    text-decoration: none;
 }
 
 /*--------------*/
