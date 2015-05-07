@@ -98,6 +98,18 @@ h1{
     line-height: 3;
 }
 
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus{
+    color: #FFF;
+    background-color: #333;
+}
+
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus{
+    background-color: #575757;
+}
+
 .bottom-buffer{ 
     margin-bottom: 20px;
 }
@@ -227,15 +239,37 @@ and data tools pages
 /*--------------*/
 /* FOOTER START */
 /*--------------*/
+/** Magic fixed footer */
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    margin-bottom: 56px;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    background-color: #333;
+    color: #FFF;
+}
 
 footer p{
     margin: 0;
     line-height: 3.0;
+    padding: 7px 0px;
 }
 
 footer ul{
     margin-top: 15px;
     margin-bottom: 0;
+}
+
+footer a{
+    color: #FFF;
 }
 
 /*--------------*/
