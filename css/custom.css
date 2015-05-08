@@ -137,6 +137,30 @@ h1, h2, h3, h4, h5, h6{
 /*--------------*/
 
 /*--------------*/
+/* WP OVERRIDES START*/
+/*--------------*/
+
+img.alignleft {
+    float: left;
+    display: inline;
+}
+
+img.aligncenter{
+    clear: both;
+    margin: 0 auto;
+    display: block;
+}
+
+img.alignright {
+    float: right;
+    display: inline;
+}
+
+/*--------------*/
+/* WP OVERRIDES END*/
+/*--------------*/
+
+/*--------------*/
 /* HEADER START */
 /*--------------*/
 
