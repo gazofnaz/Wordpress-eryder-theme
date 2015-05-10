@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6{
     transition: color 0.5s ease;
     color: #DFEA7B;
 }
-.breadcrumbs{color:#FFF}
+
 .breadcrumb{
     background-color: inherit;
     border: 0;
@@ -147,6 +147,15 @@ h1, h2, h3, h4, h5, h6{
     content: "/\00a0";
     padding: 0 5px;
     color: #ccc;
+}
+
+.breadcrumb.breadcrumb-light{
+    padding-left: 10px;
+    padding-bottom: 0px;
+}
+
+.breadcrumb.breadcrumb-light a{
+    color: #333;
 }
 
 .bottom-buffer{ 

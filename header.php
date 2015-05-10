@@ -44,7 +44,7 @@
                                 <?php bloginfo('name'); ?>
                             </a>
 <?php
-                            if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs();
+                            if ( function_exists( 'dimox_breadcrumbs' ) ) dimox_breadcrumbs( 'hidden-sm hidden-xs' );
 ?>
 
                     </div> 
@@ -67,3 +67,9 @@
 
 <!-- See footer for closures -->
 <div class="container">
+
+    <div class="row">
+<?php
+        if ( function_exists( 'dimox_breadcrumbs' ) ) dimox_breadcrumbs( 'breadcrumb-light hidden-lg hidden-md' );
+?>
+    </div>
