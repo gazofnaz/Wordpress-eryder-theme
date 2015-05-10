@@ -53,47 +53,7 @@ function load_all_scripts() {
 add_action( 'wp_enqueue_scripts', 'load_all_scripts' );
 /*---*/
 
-/**
- * Get all images from the custom post type wpcf-post-image
- *
- * Allows a limit to be set, usually to fetch a single image
- *
- */
-function getAllPostImages( $limit = null ){
-
-    $post_image_src = [];
-
-    if( ! $customFieldData = get_post_custom()['wpcf-post-image'] ){
-        $customFieldData = array();
-    }
-
-    foreach( $customFieldData as $key => $img_src ){
-        
-        // allow for limited number to be returned
-        if( $limit &&  $key +1 > $limit ){
-            continue;
-        }
-
-        // backend allows for empty strings, which looks bad in the front end.
-        if( $img_src == '' ){
-            continue;
-        }
-
-        // just in case an image goes missing.
-        // Annoyingly getimagesize throws a warning instead of returning false.
-        if ( !@getimagesize( $img_src ) ) {
-            continue;
-        }
-
-        $post_image_src[] = $img_src; 
-
-    }
-
-    return $post_image_src;
-
-}
-/*---*/
-/** @todo create plugin */
+/** @todo create gallery plugin */
 remove_shortcode( 'gallery' );
 add_shortcode( 'gallery', 'parse_gallery_shortcode' );
 
@@ -186,7 +146,7 @@ EOT;
 add_action( 'after_setup_theme', 'eryder_theme_setup' );
 function eryder_theme_setup() {
     // custom auto large thumbnail size
-    add_image_size( 'large-thumb', 450, 450, true );
+    add_image_size( 'large-thumb', 450, 450, array( 'center', 'center' ) );
 }
 /*---*/
 /* Allow post title to be inserted into post content using shortcode */

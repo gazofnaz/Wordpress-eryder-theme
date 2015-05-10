@@ -181,11 +181,7 @@ img.alignright {
     padding: 15px;
     margin-bottom: 25px;
     background: #FFF;
-}
-
-.ga-box-list .box-item.disabled{
-    border: 1px dashed #EEE;
-    background: none;
+    max-width: 450px;
 }
 
 .ga-box-list{
@@ -196,35 +192,11 @@ img.alignright {
     margin-bottom: 0px;
     font-size: 12px;
 }
-
-.ga-box-list .box-item p.frequency{
-    color: #485D7C;
-}
-
-.ga-box-list .box-item.disabled img{
-    /* Chrome/Webkit Only for now */
-    filter: grayscale(1) blur(1px) opacity(0.8);
-}
-
-.ga-box-list h2 small{
+.ga-box-list .box-item a.img-crop{
     display: block;
-    background: #61799b; /*Default Colour*/
-    height: 20px;
-    width: 320px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-.ga-box-list h2 small.colour-1{
-    background: #61799b;
-}
-
-.ga-box-list h2 small.colour-2{
-    background: #A4B5CF;
-}
-
-.ga-box-list h2 small.colour-3{
-    background: #949BA5;
+    overflow: hidden;
+    min-height: 277px;
+    max-height: 314px;
 }
 
 .ga-box-list h3{
@@ -244,7 +216,7 @@ img.alignright {
     margin-top: 10px;
 }
 
-.ga-box-links {
+.ga-box-links{
     margin-top: 20px;
 }
 
