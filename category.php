@@ -25,7 +25,6 @@
                 <a href="<?php the_permalink() ?>" class="img-crop">
                     <img src="<?php echo $post_image_src[0] ?>" class="img-responsive"/>
                 </a>
-                <div class="clearfix"></div>
                 <div class="ga-box-links" >
                     <p class="text-center">
                         <a href="<?php the_permalink() ?>"><?php the_title(); ?>

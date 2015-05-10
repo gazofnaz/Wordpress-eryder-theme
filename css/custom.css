@@ -158,7 +158,11 @@ h1, h2, h3, h4, h5, h6{
     color: #333;
 }
 
-.bottom-buffer{ 
+.top-padding{
+    padding-top: 15px;
+}
+
+.bottom-buffer{
     margin-bottom: 20px;
 }
 
@@ -237,6 +241,12 @@ img.alignright {
     max-height: 314px;
 }
 
+.ga-box-list .box-item a.img-crop:hover + .ga-box-links a{
+    background-color: #7B7B7B;
+    color: #FFF;
+    text-decoration: none;
+}
+
 .ga-box-list h3{
     margin-top: 0;
 }
@@ -254,18 +264,16 @@ img.alignright {
     margin-top: 10px;
 }
 
-.ga-box-links{
-    margin-top: 20px;
-}
-
 .ga-box-links a{
-    border: 1px solid #DFEA7B;
+    border: 1px solid #909090;
     display: block;
     padding: 10px 0;
+    background-color: #333;
+    color: #FFF;
 }
 
 .ga-box-links a:hover {
-    background-color: #DFEA7B;
+    background-color: #7B7B7B;
     color: #FFF;
     text-decoration: none;
 }

@@ -6,7 +6,7 @@
 
 ?>
 
-<div class="row">
+<div class="row top-buffer">
     <div class="col-sm-12">
         <div id="the-content">
 <?php
