@@ -92,13 +92,13 @@ function getAllPostImages( $limit = null ){
     return $post_image_src;
 
 }
-
+/*---*/
 /** @todo create plugin */
 remove_shortcode( 'gallery' );
 add_shortcode( 'gallery', 'parse_gallery_shortcode' );
 
 /** @todo Build a framework just like wordpress but not shit. */
-function parse_gallery_shortcode($atts) {
+function parse_gallery_shortcode( $atts ) {
  
     global $post;
  
@@ -181,22 +181,23 @@ EOT;
     return $image_tag;
 
 }
-
+/*---*/
+/* Custom theme configuration. Add new image size */
 add_action( 'after_setup_theme', 'eryder_theme_setup' );
 function eryder_theme_setup() {
     // custom auto large thumbnail size
     add_image_size( 'large-thumb', 450, 450, true );
 }
-
-/** Allow post title to be inserted into post content */
+/*---*/
+/* Allow post title to be inserted into post content using shortcode */
 function shortcode_title( ){
     $the_title = get_the_title();
     $the_title = sprintf( '<h1>%s</h1>', $the_title );
     return $the_title;
 }
 add_shortcode( 'page_title', 'shortcode_title' );
-
+/*---*/
 /** hide admin bar from front end */
 add_filter( 'show_admin_bar', '__return_false' );
-
+/*---*/
 ?>

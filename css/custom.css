@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6{
 
 .navbar-nav>li {
     width: 50%;
-    text-align: center;
+    text-align: right;
 }
 
 /* Force full width for mobile */
@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6{
 
 .dropdown-menu{
     min-width: 100%;
-    text-align: center;
+    text-align: right;
     font-size: 16px;
     background-color: #7B7B7B;
     border: none;
@@ -176,11 +176,6 @@ img.alignright {
 /*--------------*/
 /*BOX LIST START*/
 /*--------------*/
-
-/*
-ga box list used in newsletter library
-and data tools pages
-*/
 
 .ga-box-list .box-item{
     padding: 15px;
