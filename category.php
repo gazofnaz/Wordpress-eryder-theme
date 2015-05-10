@@ -3,12 +3,6 @@
     get_header();
 
 ?>
-
-<div class="row">
-    <div class="col-sm-12">
-        <h1><?php wp_title( '' ); ?></h1>
-    </div>
-</div>
 <?php if (have_posts()) : ?>
 <div class="row">
     <div class="ga-box-list">

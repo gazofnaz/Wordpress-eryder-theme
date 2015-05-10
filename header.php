@@ -41,9 +41,12 @@
                         
                             <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
                                 <span class="glyphicon glyphicon glyphicon-home"></span> 
-                                <?php bloginfo('name'); ?> - <small><?php bloginfo('description'); ?></small>
+                                <?php bloginfo('name'); ?>
                             </a>
-                        
+<?php
+                            if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs();
+?>
+
                     </div> 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <?php
